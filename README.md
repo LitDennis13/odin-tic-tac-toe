@@ -1,1 +1,1 @@
-# odin-tick-tack-toe
+# odin-tic-tac-toe
