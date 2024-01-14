@@ -41,14 +41,3 @@ body {
     grid-area: 2 / 3 / 3 / 4;
 }
 
-#changePlayerNames {
-    height: 3rem;
-    width: 10rem;
-    border: none;
-    font-size: 1.3rem;
-    align-self: center;
-
-}
-#changePlayerNames:hover {
-    background-color: rgb(200,200,200);
-}

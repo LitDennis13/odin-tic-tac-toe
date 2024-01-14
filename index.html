@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./Styles/Main-Page-styles.css">
+    <link rel="stylesheet" href="./Styles/Change-Name-Modal-styles.css">
 </head>
 <body>
     <h1 id="title">Tic Tac Toe</h1>
@@ -18,5 +19,29 @@
         <p>Player Two</p>
         <div id="p2Marker">O</div>
     </div>
+    <div id="">
+
+    </div>
+    <dialog id="changeNamesModal">
+        <form action="#" method="dialog" id="changeNamesForm">
+            <ul>
+                <li class="nameInput">
+                    <label for="playerOneName">Player One Name</label>
+                    <input type="text" id="playerOneName" name="PlayerOneName" required>
+                </li>
+                <li class="nameInput">
+                    <label for="playerTwoName">Player Two Name</label>
+                    <input type="text" id="playerTwoName" name="PlayerTwoName" required>
+                </li>
+                <li>
+                    <button type="submit" id="setNamesButton">Set Names</button>
+                </li>
+                <li>
+                    <button type="button" id="closeModalButton">Close</button>
+                </li>
+            </ul>
+        </form>
+    </dialog>
+    <script src="./Scripts/Change-Names-Modal-script.js"></script>
 </body>
 </html>
