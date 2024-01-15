@@ -1,0 +1,32 @@
+#gameContainer {
+    grid-area: 3 / 1 / 4 / 4;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+#turnIndicator {
+    font-size: 2.3rem;
+}
+
+#gameBoard {
+    background-color: black;
+    height: min(600px, 80vw);
+    width: min(900px, 90vw);
+}
+
+#resetButton {
+    grid-area: 4 / 2 / 5 / 3;
+    margin-top: 1rem;
+    height: 4rem;
+    width: 100%;
+    font-size: 3.5rem;
+    border: none;
+    background-color: white;
+}
+#resetButton:hover {
+    background-color: rgb(200,200,200);
+}

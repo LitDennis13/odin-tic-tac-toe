@@ -6,6 +6,7 @@
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="./Styles/Main-Page-styles.css">
     <link rel="stylesheet" href="./Styles/Change-Name-Modal-styles.css">
+    <link rel="stylesheet" href="./Styles/Game-Container-styles.css">
 </head>
 <body>
     <h1 id="title">Tic Tac Toe</h1>
@@ -13,15 +14,19 @@
     <div id="playerOne">
         <p>Player One</p>
         <div id="p1Marker">X</div>
+        <p id="playerOneWinCount">Wins: 0</p>
     </div>
     <button id="changePlayerNames">Change Names</button>
     <div id="playerTwo">
         <p>Player Two</p>
         <div id="p2Marker">O</div>
+        <p id="playerTwoWinCount">Wins: 0</p>
     </div>
-    <div id="">
-
+    <div id="gameContainer">
+        <p id="turnIndicator">Player One Turn</p>
+        <div id="gameBoard"></div>
     </div>
+    <button id="resetButton">Reset</button>
     <dialog id="changeNamesModal">
         <form action="#" method="dialog" id="changeNamesForm">
             <ul>
