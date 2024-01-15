@@ -36,6 +36,7 @@ function setPlayerNames() {
         playerOnePageDisplay.textContent = playerOneEnteredName.value;
         playerTwoPageDisplay.textContent = playerTwoEnteredName.value;
     }
+    TTT.updateTurn();
 }
 
 
