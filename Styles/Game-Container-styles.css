@@ -12,12 +12,6 @@
     font-size: 2.3rem;
 }
 
-#gameBoard {
-    background-color: black;
-    height: min(600px, 80vw);
-    width: min(900px, 90vw);
-}
-
 #resetButton {
     grid-area: 4 / 2 / 5 / 3;
     margin-top: 1rem;
@@ -29,4 +23,29 @@
 }
 #resetButton:hover {
     background-color: rgb(200,200,200);
+}
+
+#gameBoard {
+    background-color: rgb(36,41,47);
+    height: min(600px, 80vw);
+    width: min(900px, 90vw);
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.gameBoardSquare {
+    color: black;
+    font-size: calc(min(600px, 90vw)/3);
+    text-align: center;
+    vertical-align: middle;
+    text-justify: center;
+    height: calc(min(600px, 80vw)/3);
+    width: calc(min(900px, 90vw)/3);
+}
+.primaryColor {
+    background-color:white;
+    
+}
+.alternateColor {
+    background-color: grey;
 }
