@@ -49,9 +49,15 @@
     width: calc(min(900px, 90vw)/3);
 }
 .primaryColor {
-    background-color:white;
-    
+    background-color: rgb(255,255,255);
 }
+.primaryColor:hover {
+    background-color:rgb(255,200,200);
+}
+
 .alternateColor {
     background-color: grey;
+}
+.alternateColor:hover {
+    background-color:rgb(200,100,100);
 }
