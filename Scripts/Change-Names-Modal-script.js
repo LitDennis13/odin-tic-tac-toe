@@ -37,6 +37,7 @@ function setPlayerNames() {
         playerTwoPageDisplay.textContent = playerTwoEnteredName.value;
     }
     TTT.updateTurn();
+    TTT.updateWinnerTitle();
 }
 
 

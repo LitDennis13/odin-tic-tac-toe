@@ -10,7 +10,7 @@
 
 body {
     display: grid;
-    grid-template: 1fr 1fr 4fr 1fr / 1fr 1fr 1fr;
+    grid-template: 1fr 1fr 4fr 1fr .5fr/ 1fr 1fr 1fr;
     justify-items: center;
     margin: 0px;
     
