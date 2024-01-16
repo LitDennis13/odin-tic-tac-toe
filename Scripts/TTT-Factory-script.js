@@ -10,6 +10,17 @@ function TTTFactory() {
     let winner = "none";
     let gameBoardJs = [];
     let possibleWins = [
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+        [0,4,8],
+        [2,4,6],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8]
+    ];
+    /*
+    let possibleWins = [
         ["A","A","A","","","","","",""],
         ["","","","A","A","A","","",""],
         ["","","","","","","A","A","A"],
@@ -18,14 +29,17 @@ function TTTFactory() {
         ["A","","","A","","","A","",""],
         ["","A","","","A","","","A",""],
         ["","","A","","","A","","","A"]
-    ]
+    ];*/
     const updateTurn = function() {
+        if (playerTurnDisplay.textContent === "Draw!") {
+            return;
+        }
         playerTurnDisplay.textContent = `${playerTurn ? playerOne.textContent : playerTwo.textContent}(${currentMarker(playerTurn)}) Turn`;
-    }
+    };
 
     const currentMarker = function(turn) {
         return turn ? "X" : "O";
-    }
+    };
 
     const addXO = function (event) {
         let target = event.target;
@@ -35,7 +49,7 @@ function TTTFactory() {
             playerTurn = !playerTurn;
         }
         
-    }
+    };
 
     const resetGame = function() {
         let completeReset = true;
@@ -50,6 +64,7 @@ function TTTFactory() {
         }
         playing = true;
         playerTurn = true;
+        playerTurnDisplay.textContent = "";
         updateTurn();
     }
     const updateGameBoardJS = function() {
@@ -58,7 +73,7 @@ function TTTFactory() {
             gameBoardJs.push(document.querySelector(`#sq${i}`).textContent);
         }
 
-    }
+    };
 
     const checkingWinner = function() {
         updateGameBoardJS();
@@ -74,33 +89,50 @@ function TTTFactory() {
             }
             else return "";
         });
-
+        let loops = 0;
         for (const possibility of possibleWins) {
-            if (arrayEquals(checkBoardJsX,possibility)) {
-                return "X";
-            };
-        }
-        for (const possibility of possibleWins) {
-            if (arrayEquals(checkBoardJsO,possibility)) {
-                return "O";
+            loops = 0;
+            for (const index of possibility) {
+                if (checkBoardJsX[index] == "A") {
+                    loops++;
+                    if (loops === 3) return "X";
+                    continue;
+                }
+                else break;
             }
         }
+        
+        for (const possibility of possibleWins) {
+            loops = 0;
+            for (const index of possibility) {
+                if (checkBoardJsO[index] == "A") {
+                    loops++;
+                    if (loops === 3) return "O";
+                    continue;
+                }
+                else break;
+            }
+        }
+        
         return "none";
-    }
+    };
 
     const updatePlayerWins = function() {
         playerOneWinsDisplay.textContent = `Wins: ${playerOneWins}`;
         playerTwoWinsDisplay.textContent = `Wins: ${playerTwoWins}`;
-    }
+    };
 
     const updateWinnerTitle = function() {
+        if (playerTurnDisplay.textContent === "Draw!") {
+            return;
+        }
         if (winner === "X") {
             playerTurnDisplay.textContent = `${playerOne.textContent} Wins`;
         }
         else if (winner === "O") {
             playerTurnDisplay.textContent = `${playerTwo.textContent} Wins`;
         }
-    }
+    };
     const checkWinner = function() {
         if (winner === "X") {
             updateWinnerTitle();
@@ -113,9 +145,19 @@ function TTTFactory() {
             playerTwoWins++;
         }
         updatePlayerWins();
-    }
+    };
     
+    const checkDraw = function() {
         
+        let fullBoard = gameBoardJs.every((val) => {
+            return val !== ""
+        });
+        if (fullBoard) {
+            playerTurnDisplay.textContent = "Draw!";
+            playing = false;
+        }
+        
+    };
     
     const gameUpdate = function() {
         winner = checkingWinner();
@@ -127,6 +169,7 @@ function TTTFactory() {
             updateTurn();
         }
         updateGameBoardJS();
+        checkDraw();
     }    
 
     const onSquareClick = function(event) {
